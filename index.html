@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5">
+<title>HIDECOR SiteLog — Daily Progress Report</title>
+<meta name="description" content="Capture site photos with descriptions, daily progress, manpower and approvals on site, then issue the Daily Progress Report as a PDF. Works offline.">
+<meta name="theme-color" content="#1E2138">
+<meta name="color-scheme" content="light">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="favicon.png" sizes="32x32">
+<link rel="icon" href="icons/icon-192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<!-- iOS standalone behaviour: Safari still reads these alongside the manifest -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SiteLog">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+
+<header id="top">
+  <div class="ttl" id="topTitle">SiteLog</div>
+  <button id="datePill" aria-label="Change report date">—</button>
+  <button id="btnPdf" class="acc" aria-label="Create PDF">PDF</button>
+</header>
+
+<main id="view"></main>
+
+<nav id="nav" aria-label="Main"></nav>
+
+<div id="install" role="dialog" aria-label="Install app">
+  <div class="t"><b>Install SiteLog</b>Add it to your home screen and it opens like any other app, offline.</div>
+  <button class="btn sm sec" onclick="dismissInstall()">Later</button>
+  <button class="btn sm acc" onclick="doInstall()">Install</button>
+</div>
+
+<div id="sheetbg" role="dialog" aria-modal="true">
+  <div id="sheet">
+    <div class="grab"></div>
+    <h3><span id="sheetTitle"></span><button class="x" onclick="closeSheet()" aria-label="Close">&times;</button></h3>
+    <div class="sb" id="sheetBody"></div>
+    <div class="sf" id="sheetFoot"></div>
+  </div>
+</div>
+
+<div id="busy"><div class="spin"></div><div id="busyMsg" class="mini"></div></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/core.js"></script>
+<script src="js/pdf.js"></script>
+<script src="js/report.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
